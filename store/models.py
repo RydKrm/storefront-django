@@ -25,7 +25,7 @@ MEMBERSHIP_CHOICES = [
         ('B','Bronze'),
         ('S','Silver'),
         ('G', 'Gold')
-    ]
+    ]  
 
 class Customer(models.Model):
     first_Name = models.CharField(max_length=50)
