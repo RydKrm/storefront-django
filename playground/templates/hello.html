@@ -7,10 +7,19 @@
 </head>
 <body>
 
-    {% if name %}
+    <!-- {% if name %}
     <h1>Hello {{name}}</h1>
     {% else %}
     <h1>No Name</h1>
-    {%endif  %}
+    {%endif  %}  -->
+
+    <h1>{{ title }}</h1>
+    <ul>
+        {%for product in products %}
+        <hr>
+        <li> title :  {{product.title}} <br>   price : {{product.price}} <br> inventory: {{product.inventory}} <br> collection : {{product.collection__title }} </li> 
+        {%endfor%}
+    </ul>
+
 </body>
 </html> 

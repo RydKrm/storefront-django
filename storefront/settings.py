@@ -90,7 +90,7 @@ DATABASES = {
         'NAME': 'django_db',
         'USER': 'django_user',
         'PASSWORD': 'password123',
-        'HOST': '127.0.0.1',  # Using '127.0.0.1' instead of 'localhost'
+        'HOST': '127.0.0.1', 
         'PORT': '3306',
         'OPTIONS': {
             'unix_socket': '/opt/lampp/var/mysql/mysql.sock',
