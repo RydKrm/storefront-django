@@ -16,7 +16,7 @@ def hello_world(request):
 
 def get_product(request):
     # try :
-    #    singleProduct = Product.objects.get(pk=1)
+    #    singleProduct = Product.objects.get(pk=1) 
     # except ObjectDoesNotExist:
     #     pass
 
@@ -65,10 +65,10 @@ def get_product(request):
     # customer.save()
 
     # Delete object 
-    collection = Collection(pk=101)
-    collection.delete()
+    # collection = Collection(pk=101)
+    # collection.delete()
      
-    Product.object.filter(price__lt=10).delete() 
+    # Product.object.filter(price__lt=10).delete() 
 
 
 

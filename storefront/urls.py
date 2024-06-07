@@ -22,6 +22,7 @@ admin.site.site_header = "Store Front Dashboard"
 
 urlpatterns = [
     path("__debug__/", include(debug_toolbar.urls)),
-    path('admin/', admin.site.urls),
-    path('playground/', include('playground.urls'))
+    path('admin/', admin.site.urls), 
+    path('playground/', include('playground.urls')),
+    path('product/', include('store.urls'))
 ]
