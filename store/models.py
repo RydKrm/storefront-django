@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import MinValueValidator
 
 # Promotion many-to-many relationship
 class Promotion(models.Model):
@@ -14,11 +15,17 @@ class Product(models.Model):
     title =models.CharField(max_length=255) 
     slug = models.SlugField( )
     description = models.TextField()
-    price = models.DecimalField(max_digits=6, decimal_places=3)
+    price = models.DecimalField(max_digits=6, decimal_places=3, validators=[MinValueValidator(1,message="min value is greater then 1")])
     inventory = models.IntegerField()
     last_update = models.DateTimeField(auto_now=True) 
     collection = models.ForeignKey(Collection, on_delete=models.PROTECT)  
-    promotions = models.ManyToManyField(Promotion)
+    promotions = models.ManyToManyField(Promotion, blank=True)
+    # for showing the title name
+    def __str__(self) -> str:
+        return self.title
+    # for default sorting 
+    class Meta:
+        ordering = ['title']
 
 
 MEMBERSHIP_CHOICES = [
@@ -31,9 +38,12 @@ class Customer(models.Model):
     first_Name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     email = models.EmailField(unique=True)
-    phone = models.CharField(max_length=13)
+    phone = models.CharField(max_length=13) 
     birth_date = models.DateField(null=True)
     membership_choices = models.CharField(max_length=1, choices=MEMBERSHIP_CHOICES, default='B')
+
+    def __str__(self) -> str:
+        return self.first_Name+self.last_name
     # class Meta:
     #     db_table = 'store_customers'
     #     index = [
